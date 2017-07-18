@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour {
-    public Paddle paddle;
+    private Paddle paddle;
     private bool hasStarted = false;
     private Vector3 paddletoBallVector;
 
 	// Use this for initialization
 	void Start () {
+        paddle = GameObject.FindObjectOfType<Paddle>();
         paddletoBallVector = this.transform.position - paddle.transform.position;
         print(paddletoBallVector.y);
+
+        
 	}
 	
 	// Update is called once per frame

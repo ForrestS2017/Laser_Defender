@@ -17,4 +17,17 @@ public class LevelManager : MonoBehaviour {
         Debug.Log("Quitting game");
         Application.Quit();
     }
+
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void BrickDestroyed()
+    {
+        if (Brick.breakableCount <= 0)    //if last brick destroyed
+        {
+            LoadNextLevel();
+        }
+    }
 }
